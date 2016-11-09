@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1 Opret træningsprogram
+  .row
+    .col-xs-4
+      form(method="post", action="/excercise/new")
+        label(for='name') Navn:
+        br
+        input.form-control(id='name',type='text',value='',name='name')
+        br
+        input.btn.btn-default(type='submit',value='Gem',data-transition='fade', )

@@ -1,0 +1,11 @@
+
+table
+  tr
+    th= "Navn"
+    th= "Dato"
+  - if (programs.length) {
+    each program in programs
+      tr
+        td= program.name
+        td= program.date
+  - }

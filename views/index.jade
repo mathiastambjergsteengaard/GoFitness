@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    .jumbotron
+      h1= title
+      p Welcome to #{title}
+  .btn.btn-primary(onclick='new_program()') Opret træningsprogram
+  br
+  .btn.btn-primary(onclick='edit()') Opdatér gennemførte træningsprogrammer
+  br
+  .btn.btn-primary(onclick='log()') Se log over gennemførte træningsprogrammer
+  script.
+    function new_program() {
+      window.location.href = '/program/new'
+    }
+  script.
+    function edit() {
+      window.location.href = '/program/edit'
+    }
+  script.
+    function log() {
+      window.location.href = '/program/log'
+    }
+
+

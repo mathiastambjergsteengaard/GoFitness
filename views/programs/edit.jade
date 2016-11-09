@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h1 Tilføj gennemførte træningsprogrammer
+  form(method="post", action="/program/update")
+    label(for='name') Navn
+    br
+    input(id='name',type='text',value='',name='name')
+    br
+    input(id='date', type='date', name="date")
+    input(type='submit',value='Gem',data-transition='fade', data-theme='c')
+  br
+  br
+
+  h2= "Mulige træningsprogrammer"
+  table
+    tr
+      th= "Navn"
+    - if (programs.length) {
+      each program in programs
+        tr
+          td= program.name
+    - }

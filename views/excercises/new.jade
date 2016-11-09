@@ -1,0 +1,40 @@
+extends ../../views/layout
+
+block content
+  h1= "Tilføj øvelser til træningsprogrammet " + program_name
+  .row
+    .col-xs-3
+      form(method="post", action="/excercise/create")
+        input(id='program_name', hidden=true, value=program_name, name="program_name")
+        label(for='name')= "Øvelsens navn"
+        br
+        input.form-control(id='name',type='text',value='', name="name")
+        br
+        label(for='name')= "Beskriv øvelsen"
+        br
+        input.form-control(id='name',type='text',value='', name="description")
+        br
+        label(for='name')= "Vælg antal sæt"
+        br
+        input.form-control(id='name',type='number',value='', name="set_number")
+        br
+        label(for='name')= "Vælg hvor lang tid øvelsen skal tage eller hvor mange gentagelser"
+        br
+        .col-xs-6
+            input.form-control(id='name',type='number',value='', name="duration_minutes")
+            label(for='name')= "Min."
+        .col-xs-6
+            input.form-control(id='name',type='number',value='', name="duration_seconds")
+            label(for='name')= "Sek."
+        br
+        label(for='name')= "Antal gentagelser"
+        br
+        input.form-control(id='name',type='number',value='', name="repetitions")
+        br
+        br
+        .btn.btn-danger(type="button", onclick="move()")= "Færdig"
+        input.btn.btn-primary(type='submit',value='Tilføj øvelse')
+  script.
+    function move() {
+      document.location.href = "/";
+    }
