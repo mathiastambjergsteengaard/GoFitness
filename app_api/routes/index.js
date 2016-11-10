@@ -3,6 +3,8 @@ var router = express.Router();
 var ctrlprogram = require('../controllers/programs_controller');
 var ctrlexercise = require('../controllers/exercises_controller');
 
+
+
 router.get('/programs', ctrlprogram.programsList);
 router.post('/programs', ctrlprogram.create);
 router.get('/programs/:program_id', ctrlprogram.programsReadOne);
