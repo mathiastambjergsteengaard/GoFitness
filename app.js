@@ -9,6 +9,12 @@ require('./app/models/db');
 var routes = require('./app/routes/index');
 var api_routes = require('./app_api/routes/index');
 
+var apiOptions = {
+  server : "http://localhost:3000"
+};
+if (process.env.NODE_ENV === 'production') {
+  apiOptions.server = "https://fathomless-falls-39203.herokuapp.com";
+}
 
 var app = express();
 
