@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var ctrlprogram = require('../controllers/programs_controller');
 var ctrlexercise = require('../controllers/exercises_controller');
+var ctrlAuth = require('../controllers/authentication');
 
 
 
@@ -9,10 +10,8 @@ router.get('/programs', ctrlprogram.programsList);
 router.post('/programs', ctrlprogram.create);
 router.get('/programs/:program_id', ctrlprogram.programsReadOne);
 router.post('/programs/:program_id/exercise', ctrlexercise.create);
-// router.get('/program/log', ctrlprogram.log);
-// router.get('/excercise/new', ctrlexercise.new);
-// router.post('/excercise/new', ctrlexercise.new);
-// router.post('/excercise/create', ctrlexercise.create);
+router.post('/register', ctrlAuth.register);
+router.post('/login', ctrlAuth.login);
 
 
 module.exports = router;

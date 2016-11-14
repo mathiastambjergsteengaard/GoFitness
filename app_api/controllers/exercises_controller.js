@@ -5,7 +5,7 @@ var sendJsonResponse = function(res, status, content) {
   res.json(content);
 };
 
-var addExercise = function(req, res, program) {
+module.exports.addExercise = function(req, res, program) {
   var exercise = new models.Excercise({
     name: req.body.name,
     description: req.body.description,

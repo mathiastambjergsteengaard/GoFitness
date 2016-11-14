@@ -3,9 +3,9 @@ var autoIncrement = require('mongoose-auto-increment');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
-var dbURI = "mongodb://Group24:Group24@ds149577.mlab.com:49577/gofitness;"
-var connection = mongoose.createConnection(dbURI);
+var dbURI = "mongodb://group24:group24@ds149577.mlab.com:49577/gofitness"
 mongoose.connect(dbURI);
+var connection = mongoose.createConnection(dbURI);
 
 autoIncrement.initialize(connection);
 
@@ -47,7 +47,8 @@ userSchema.methods.setPassword = function(password){
 };
 
 userSchema.methods.validPassword = function(password) {
-  var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex'); return this.hash === hash;
+  var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64).toString('hex');
+  return this.hash === hash;
 };
 
 userSchema.methods.generateJwt = function() {
