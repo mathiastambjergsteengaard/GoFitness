@@ -60,7 +60,7 @@ userSchema.methods.generateJwt = function() {
     email: this.email,
     name: this.name,
     exp: parseInt(expiry.getTime() / 1000),
-  }, 'thisIsSecret' );
+  }, process.env.JWT_SECRET );
 };
 
 
@@ -68,10 +68,12 @@ programSchema.plugin(autoIncrement.plugin, 'Program');
 var Program = mongoose.model('Program', programSchema);
 var Excercise = mongoose.model('Excercise', excerciseSchema);
 var Finished = mongoose.model('Finished', finishedSchema);
+var User = mongoose.model('User', userSchema);
 
 exports.Program = Program;
 exports.Excercise = Excercise;
 exports.Finished = Finished;
+exports.User = User;
 
 mongoose.connection.on('connected', function () {
   console.log('Mongoose connected to ' + dbURI);
